@@ -1,0 +1,12 @@
+100 200 samsung
+100 5 telefono inteligente, 4 gb de ram, 16 de almacenamiento
+samsung A04
+101 30000 hyundai
+100 200 telefono inteliente, 3 gb de ram, 8 de almacenamiento
+hyundai ultra sync
+102 1 motorola
+100 100 telefono fijo
+marcelo
+103 45000 oppo
+100 500 telefono fijo
+oppo 3.4
