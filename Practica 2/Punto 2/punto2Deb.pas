@@ -50,8 +50,6 @@ begin
 end;
 
 
-
-
 procedure cargarDet (var det : arch_det);
 
     procedure leerVen (var ven : venta);

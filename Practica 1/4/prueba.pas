@@ -82,7 +82,7 @@ var
     name : String;
 begin
   //asumimos que el archivo existe con los empleados ya cargados
-    Write('nombre del archivo: ');
+    Write('nombre del archivo ya existente: ');
     readln(name);
 
     Assign(arch_log,name);

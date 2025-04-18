@@ -65,7 +65,7 @@ var
     ven : venta;
     prod : producto; 
 begin
-    rewrite(detalle); reset (maestro);
+    Reset(detalle); reset (maestro);
 
     leer(detalle,ven);
 
@@ -75,18 +75,20 @@ begin
         read(maestro,prod);
 
 
+
+        cantVen := 0;
+
+        while ven.cod = aux.cod do
+        begin
+          cantVen := ven.cantVen;
+          leer(detalle,ven);
+        end;
+
+
         // mientras no encuentre el producto del detalle en el maestro
         while ven.cod <> prod.cod do
         begin
            read(prod.cod);
-        end;
-
-        cantVen := 0;
-
-        while ven.cod = prod.cod do
-        begin
-          cantVen := ven.cantVen;
-          leer(detalle,ven);
         end;
 
         seek(maestro,filepos(maestro)-1);
@@ -94,20 +96,23 @@ begin
         prod.actStock := prod.actStock - cantVen;
 
         write(maestro,prod);
-        leer(detalle,ven);
     end;
+    close(maestro); close(detalle);
 end;
 
 
 procedure exportar (var mae : arch_mast; var texto : text);
+
+procedure leer (var )
+
 var
     prod : producto;
 begin
     rewrite(texto); reset(mae);
 
-    read(mae,prod);
+    leer(mae,prod);
 
-    while not Eof(mae) do
+    while prod.cod <> valoralto  do
     begin
         if (prod.actStock < prod.minStock) then
         begin
@@ -167,7 +172,8 @@ var
     opcion : char;
     texto : text;
 begin
-
+    while true do
+    begin
     writeln('Inserte opcion:');
     writeln(' 1 = Actualizar archivo maestro');
     writeln(' 2 = Exportar datos del maestro a un archivo txt');
@@ -189,5 +195,6 @@ begin
             assign(mae,'Maestro');
             impArch(mae);
         end;
+    end;
     end;
 end.
